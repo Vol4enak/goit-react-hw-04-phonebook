@@ -7,7 +7,6 @@ export class Filter extends Component {
         this.props.onChange(value);
     }
   render() {
-     console.log(123);
     return (
       <>
         <p>Find contacts by name</p>
