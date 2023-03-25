@@ -45,7 +45,7 @@ export function App() {
     setFilter(data);
   };
   const visibleContact = () => {
-    console.log(123)
+  
     const normalaizedfilter = filter.toLocaleLowerCase();
     return contacts.filter(contact =>
       contact.name.toLocaleLowerCase().includes(normalaizedfilter)
