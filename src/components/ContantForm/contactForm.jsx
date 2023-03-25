@@ -1,23 +1,32 @@
-import React, { setState } from 'react';
+import React, { useState } from 'react';
 
-export default function ContactForm() {
-  const [name, setName] = setState('');
-  const [number, setNumber] = setState('');
+export default function ContactForm(props) {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
   const handelChange = e => {
     const { name, value } = e.currentTarget;
-    this.setState({
-      [name]: value,
-    });
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'number':
+        setNumber(value);
+        break;
+
+      default:
+        return;
+    }
   };
 
   const formSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    props.onSubmit(name, number);
     reset();
   };
   const reset = () => {
-    this.setState({ name: '', number: '' });
+    setName('');
+    setNumber('');
   };
 
   return (

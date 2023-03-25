@@ -1,12 +1,11 @@
 import React from 'react';
 import { ContactInfo, ContactButtom } from './ContactList.styled';
 export const ContactList = ({ items, onDeleteContact }) => {
-
-
+  const visibleContact =  items();
   return (
     <>
       <ul>
-        {items.map(({ id, name, number }) => (
+        {visibleContact.map(({ id, name, number }) => (
           <ContactInfo key={id}>
             <p>{name}</p>
             <p>{number}</p>
