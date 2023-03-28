@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class Filter extends Component {
- 
-    trowValue = (e) => {
-        const value = e.currentTarget.value;
-        this.props.onChange(value);
-    }
-  render() {
-    return (
-      <>
-        <p>Find contacts by name</p>
-        <input type="text" onChange={this.trowValue} />
-      </>
-    );
-  }
+export function Filter({ onChange }) {
+  const trowValue = e => {
+    const value = e.currentTarget.value;
+    onChange(value);
+  };
+  return (
+    <>
+      <p>Find contacts by name</p>
+      <input type="text" onChange={trowValue} />
+    </>
+  );
 }
 export default Filter;
