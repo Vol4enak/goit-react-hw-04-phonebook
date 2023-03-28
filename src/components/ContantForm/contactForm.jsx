@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
-export default function ContactForm(props) {
+import PropTypes from 'prop-types';
+export default function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -21,7 +21,7 @@ export default function ContactForm(props) {
 
   const formSubmit = e => {
     e.preventDefault();
-    props.onSubmit(name, number);
+    onSubmit(name, number);
     reset();
   };
   const reset = () => {
@@ -63,3 +63,6 @@ export default function ContactForm(props) {
     </form>
   );
 }
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
