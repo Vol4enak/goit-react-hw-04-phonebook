@@ -10,12 +10,18 @@ export function App() {
   const [filter, setFilter] = useState('');
 
   const deleteContact = idContact => {
-    setContacts(prevState => prevState.filter(contact => contact.id !== idContact));
+    setContacts(prevState =>
+      prevState.filter(contact => contact.id !== idContact)
+    );
   };
 
-  const formSubmitHandler = ( name, number) => {
+  const formSubmitHandler = (name, number) => {
     const onFindSame = visibleContact();
-    const res = onFindSame.find(index => index.name === name);
+
+    const res = onFindSame.find(
+      index => index.name.toLowerCase() === name.toLowerCase()
+    );
+
     if (res) {
       alert(`${name} is already in contacts`);
       return;
@@ -45,7 +51,6 @@ export function App() {
     setFilter(data);
   };
   const visibleContact = () => {
-  
     const normalaizedfilter = filter.toLocaleLowerCase();
     return contacts.filter(contact =>
       contact.name.toLocaleLowerCase().includes(normalaizedfilter)
