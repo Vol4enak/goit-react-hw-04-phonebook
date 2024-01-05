@@ -40,11 +40,13 @@ export function App() {
     if (contact) {
       const parsetCont = JSON.parse(contact);
       setContacts(parsetCont);
+      console.log('получаем');
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
+    console.log('записываем');
   }, [contacts]);
 
   const filterByName = data => {

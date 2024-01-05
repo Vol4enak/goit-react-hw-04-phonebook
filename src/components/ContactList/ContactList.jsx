@@ -25,3 +25,4 @@ ContactList.prorType = {
   items: PropTypes.func.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
+localStorage.clear();
